@@ -22,24 +22,15 @@ const renderViaDOMAPI = (container) => {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 const renderViaReactAPI = (container) => {
   ReactDOM.render(
-    React.createElement(
-      'div',
-      { className: 'demo' },
-      'Hello React',
-      React.createElement(
-        'label',
-        null,
-        React.createElement(
-          'input',
-          { type: 'checkbox' },
-        ),
-        'Click me!'
-      ),
-      React.createElement(
-        'p',
-        null,
-        new Date().toString()
-      )
+    (
+      <div className="demo">
+        Hello React
+        <label>
+            <input type="checkbox" />
+            Click me!
+        </label>
+        <p>{new Date().toString()}</p>
+      </div>
     ),
     container
   );

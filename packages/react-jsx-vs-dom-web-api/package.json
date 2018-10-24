@@ -1,0 +1,18 @@
+{
+  "name": "react-jsx-vs-dom-web-api",
+  "version": "0.0.0",
+  "description": "React vs vanilla JS DOM Web API example.",
+  "main": "main.js",
+  "author": "mattiafioraso <mattia.fioraso@molo17.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn build && serve -s .",
+    "build": "babel main.jsx --out-dir build"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-react": "^7.0.0",
+    "serve": "^10.0.2"
+  }
+}
