@@ -1,0 +1,13 @@
+{
+  "name": "react-intro-course",
+  "version": "0.0.0",
+  "description": "React intro course, spanning from its basics to Redux and Jest integration.",
+  "main": "index.js",
+  "repository": "git@github.com:MOLO17/react-intro-course.git",
+  "author": "mattiafioraso <mattia.fioraso@molo17.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
