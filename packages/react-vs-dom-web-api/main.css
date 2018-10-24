@@ -1,0 +1,11 @@
+.demo {
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 256px;
+  border: 1px solid #ccc;
+}
+
+.demo > label {
+  display: block;
+  margin-top: 20px;
+}
