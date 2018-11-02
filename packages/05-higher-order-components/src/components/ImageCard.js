@@ -1,5 +1,5 @@
-import React from 'react';
-import { PropTypes } from 'prop-types';
+import React from "react";
+import { PropTypes } from "prop-types";
 
 const ImageCard = ({ title, url }) => (
   <div className="image-card">
@@ -10,12 +10,12 @@ const ImageCard = ({ title, url }) => (
 
 ImageCard.propTypes = {
   title: PropTypes.string,
-  url: PropTypes.string,
+  url: PropTypes.string
 };
 
 ImageCard.defaultProps = {
-  title: 'Loading...',
-  url: 'https://via.placeholder.com/600?text=no%20image',
+  title: "Loading...",
+  url: "https://via.placeholder.com/600?text=no%20image"
 };
 
 export default ImageCard;

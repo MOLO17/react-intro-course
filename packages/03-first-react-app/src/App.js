@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import logo from './logo.svg';
-import Counter from './components/Counter';
-import Caption from './components/Caption';
+import logo from "./logo.svg";
+import Counter from "./components/Counter";
+import Caption from "./components/Caption";
 
-import './App.css';
+import "./App.css";
 
 class App extends Component {
   render() {

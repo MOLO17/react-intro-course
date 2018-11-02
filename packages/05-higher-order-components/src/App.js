@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import './App.css';
+import "./App.css";
 
-import RemoteImageCard from './components/RemoteImageCard';
+import RemoteImageCard from "./components/RemoteImageCard";
 
 const App = () => (
   <div className="App">

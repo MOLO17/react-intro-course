@@ -7,7 +7,13 @@
   "author": "mattiafioraso <mattia.fioraso@molo17.com>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "format": "prettier --write '**/*.js'"
+  },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "devDependencies": {
+    "prettier": "^1.14.3"
+  }
 }

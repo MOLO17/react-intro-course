@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class Counter extends Component {
   static propTypes = {
-    step: PropTypes.number,
+    step: PropTypes.number
   };
 
   static defaultProps = {
@@ -14,7 +14,7 @@ class Counter extends Component {
     super(props);
 
     this.state = {
-      count: 0,
+      count: 0
     };
   }
 
@@ -23,7 +23,7 @@ class Counter extends Component {
 
     this.setState(({ count, ...state }) => ({
       ...state,
-      count: count + step,
+      count: count + step
     }));
   }
 
@@ -32,7 +32,7 @@ class Counter extends Component {
 
     this.setState(({ count, ...state }) => ({
       ...state,
-      count: count - step,
+      count: count - step
     }));
   }
 
@@ -50,5 +50,3 @@ class Counter extends Component {
 }
 
 export default Counter;
-
-
