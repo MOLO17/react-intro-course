@@ -1,0 +1,14 @@
+{
+  "name": "react-hello-world",
+  "version": "0.0.0",
+  "description": "React vs vanilla JS DOM Web API example.",
+  "main": "main.js",
+  "author": "mattiafioraso <mattia.fioraso@molo17.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "serve -s ."
+  },
+  "devDependencies": {
+    "serve": "^10.0.2"
+  }
+}
