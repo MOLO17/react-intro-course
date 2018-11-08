@@ -2,7 +2,7 @@ import React from "react";
 
 import PropTypes from "prop-types";
 
-import { Card, Checkbox, FormField, CardContent } from 'semantic-ui-react';
+import { Card, Checkbox, FormField, CardContent } from "semantic-ui-react";
 
 const PassengerCard = ({ firstName, lastName, age, checkedIn, onCheck }) => (
   <Card>
@@ -10,7 +10,8 @@ const PassengerCard = ({ firstName, lastName, age, checkedIn, onCheck }) => (
       <FormField
         control={Checkbox}
         label={`${firstName} ${lastName}`}
-        onChange={onCheck} checked={checkedIn}
+        onChange={onCheck}
+        checked={checkedIn}
       />
     </CardContent>
   </Card>

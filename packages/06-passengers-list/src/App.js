@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { v4 as uuid } from "uuid";
 
-import 'semantic-ui-css/semantic.min.css';
+import "semantic-ui-css/semantic.min.css";
 import "./App.css";
 
 import PassengerCard from "./components/PassengerCard/PassengerCard";
@@ -35,7 +35,7 @@ class App extends Component {
 
     this.state = {
       passengers: PASSENGERS,
-      checkedInIds: [],
+      checkedInIds: []
     };
   }
 
@@ -67,7 +67,9 @@ class App extends Component {
     return (
       <Grid container divided columns={2}>
         <GridColumn>
-          <AddPassengerForm onSubmit={formValue => this.addPassenger(formValue)} />
+          <AddPassengerForm
+            onSubmit={formValue => this.addPassenger(formValue)}
+          />
         </GridColumn>
         <GridColumn>
           {passengers.map(({ id, ...props }) => {
@@ -78,7 +80,9 @@ class App extends Component {
                 {...props}
                 key={id}
                 checkedIn={checkedIn}
-                onCheck={() => this.updatePassengerCheckInStatus(id, !checkedIn)}
+                onCheck={() =>
+                  this.updatePassengerCheckInStatus(id, !checkedIn)
+                }
               />
             );
           })}

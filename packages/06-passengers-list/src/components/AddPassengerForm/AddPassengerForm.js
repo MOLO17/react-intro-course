@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 import { Form, Button, FormField, Card, CardContent } from "semantic-ui-react";
 
@@ -8,17 +8,17 @@ class AddPassengerForm extends Component {
     super(props);
 
     this.state = {
-      firstName: '',
-      lastName: '',
-      age: 0,
+      firstName: "",
+      lastName: "",
+      age: 0
     };
   }
 
   resetForm() {
     this.setState(() => ({
-      firstName: '',
-      lastName: '',
-      age: 0,
+      firstName: "",
+      lastName: "",
+      age: 0
     }));
   }
 
@@ -85,7 +85,9 @@ class AddPassengerForm extends Component {
                 onChange={event => this.handleAgeChange(event)}
               />
             </FormField>
-            <Button primary fluid type="submit">Add</Button>
+            <Button primary fluid type="submit">
+              Add
+            </Button>
           </Form>
         </CardContent>
       </Card>
@@ -94,11 +96,11 @@ class AddPassengerForm extends Component {
 }
 
 AddPassengerForm.propTypes = {
-  onSubmit: PropTypes.func,
+  onSubmit: PropTypes.func
 };
 
 AddPassengerForm.defaultProps = {
-  onSubmit: () => undefined,
+  onSubmit: () => undefined
 };
 
 export default AddPassengerForm;

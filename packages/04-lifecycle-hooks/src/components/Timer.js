@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button, Card, Label, CardContent, Divider } from "semantic-ui-react";
 
 const format = time => `${time}`.padStart(2, "0");
 
@@ -73,32 +74,36 @@ class Timer extends Component {
 
   componentWillUnmount() {
     this.pauseTimer();
+    this.resetTimer();
   }
 
   render() {
     const { deciseconds, seconds, minutes, hours, running } = this.state;
 
     return (
-      <div className="timer">
-        <div className="display">
-          {format(hours)} : {format(minutes)} : {format(seconds)} :{" "}
-          {format(deciseconds)}
-        </div>
-        <div className="buttons">
-          {running ? (
-            <button className="pause" onClick={() => this.pauseTimer()}>
-              PAUSE
-            </button>
-          ) : (
-            <button className="start" onClick={() => this.startTimer()}>
-              START
-            </button>
-          )}
-          <button className="reset" onClick={() => this.resetTimer()}>
-            RESET
-          </button>
-        </div>
-      </div>
+      <Card>
+        <CardContent textAlign="center">
+          <Label size="massive">
+            {format(hours)} : {format(minutes)} : {format(seconds)} :{" "}
+            {format(deciseconds)}
+          </Label>
+          <Divider />
+          <div className="ui two buttons">
+            {running ? (
+              <Button color="yellow" onClick={() => this.pauseTimer()}>
+                PAUSE
+              </Button>
+            ) : (
+              <Button color="green" onClick={() => this.startTimer()}>
+                START
+              </Button>
+            )}
+            <Button color="red" onClick={() => this.resetTimer()}>
+              RESET
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 }
