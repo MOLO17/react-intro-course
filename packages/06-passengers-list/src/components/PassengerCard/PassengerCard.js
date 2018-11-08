@@ -2,22 +2,18 @@ import React from "react";
 
 import PropTypes from "prop-types";
 
-import "./PassengerCard.css";
+import { Card, Checkbox, FormField, CardContent } from 'semantic-ui-react';
 
 const PassengerCard = ({ firstName, lastName, age, checkedIn, onCheck }) => (
-  <div className={`passenger-card ${checkedIn ? "checked-in" : ""}`}>
-    <div
-      className="checkbox"
-      role="checkbox"
-      tabIndex={0}
-      aria-checked={checkedIn}
-      onClick={onCheck}
-    />
-    <div className="name">
-      {firstName} {lastName}
-    </div>
-    {age < 18 ? <div className="reduced">Reduced</div> : null}
-  </div>
+  <Card>
+    <CardContent>
+      <FormField
+        control={Checkbox}
+        label={`${firstName} ${lastName}`}
+        onChange={onCheck} checked={checkedIn}
+      />
+    </CardContent>
+  </Card>
 );
 
 PassengerCard.propTypes = {

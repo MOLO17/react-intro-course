@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { v4 as uuid } from "uuid";
 
+import 'semantic-ui-css/semantic.min.css';
 import "./App.css";
 
-import PassengerCard from "./components/PassengerCard";
+import PassengerCard from "./components/PassengerCard/PassengerCard";
+import AddPassengerForm from "./components/AddPassengerForm/AddPassengerForm";
+import { Grid, GridColumn } from "semantic-ui-react";
 
 const PASSENGERS = [
   {
@@ -32,7 +35,7 @@ class App extends Component {
 
     this.state = {
       passengers: PASSENGERS,
-      checkedInIds: []
+      checkedInIds: [],
     };
   }
 
@@ -62,20 +65,25 @@ class App extends Component {
     const { passengers, checkedInIds } = this.state;
 
     return (
-      <>
-        {passengers.map(({ id, ...props }) => {
-          const checkedIn = checkedInIds.indexOf(id) >= 0;
+      <Grid container divided columns={2}>
+        <GridColumn>
+          <AddPassengerForm onSubmit={formValue => this.addPassenger(formValue)} />
+        </GridColumn>
+        <GridColumn>
+          {passengers.map(({ id, ...props }) => {
+            const checkedIn = checkedInIds.indexOf(id) >= 0;
 
-          return (
-            <PassengerCard
-              {...props}
-              key={id}
-              checkedIn={checkedIn}
-              onCheck={() => this.updatePassengerCheckInStatus(id, !checkedIn)}
-            />
-          );
-        })}
-      </>
+            return (
+              <PassengerCard
+                {...props}
+                key={id}
+                checkedIn={checkedIn}
+                onCheck={() => this.updatePassengerCheckInStatus(id, !checkedIn)}
+              />
+            );
+          })}
+        </GridColumn>
+      </Grid>
     );
   }
 }
