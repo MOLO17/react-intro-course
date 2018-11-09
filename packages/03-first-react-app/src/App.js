@@ -1,23 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 
-import logo from "./logo.svg";
 import Counter from "./components/Counter";
 import Caption from "./components/Caption";
 
 import "./App.css";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <Caption prominence={1}>Welcome on board!</Caption>
-          <Counter />
-        </header>
-      </div>
-    );
-  }
-}
+const App = ({ name }) => (
+  <div className="App">
+    <Caption prominence={1}>Hello {name}!</Caption>
+    <Counter />
+  </div>
+);
 
 export default App;

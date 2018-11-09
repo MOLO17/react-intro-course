@@ -1,15 +1,10 @@
 import React, { Component } from "react";
+
 import PropTypes from "prop-types";
 
+import { Button, Icon, Label, Grid } from "semantic-ui-react";
+
 class Counter extends Component {
-  static propTypes = {
-    step: PropTypes.number
-  };
-
-  static defaultProps = {
-    step: 1
-  };
-
   constructor(props) {
     super(props);
 
@@ -18,35 +13,59 @@ class Counter extends Component {
     };
   }
 
-  incrementCounter() {
-    const { step } = this.props;
+  increment() {
+    this.setState(({ count }) => {
+      const { max, step, onChange } = this.props;
 
-    this.setState(({ count, ...state }) => ({
-      ...state,
-      count: count + step
-    }));
+      const nextCount = Math.min(count + step, max);
+
+      onChange(nextCount);
+
+      return { count: nextCount };
+    });
   }
 
-  decrementCounter() {
-    const { step } = this.props;
+  subtract() {
+    this.setState(({ count }) => {
+      const { min, step, onChange } = this.props;
 
-    this.setState(({ count, ...state }) => ({
-      ...state,
-      count: count - step
-    }));
+      const nextCount = Math.max(count - step, min);
+
+      onChange(nextCount);
+
+      return { count: nextCount };
+    });
   }
 
   render() {
     const { count } = this.state;
 
     return (
-      <div className="counter">
-        <button onClick={() => this.decrementCounter()}>-</button>
-        <span>{count}</span>
-        <button onClick={() => this.incrementCounter()}>+</button>
-      </div>
+      <Grid columns={3} textAlign="center" padded>
+        <Button color="red" icon onClick={() => this.subtract()}>
+          <Icon name="minus circle" />
+        </Button>
+        <Label size="massive">{count}</Label>
+        <Button color="green" icon onClick={() => this.increment()}>
+          <Icon name="add circle" />
+        </Button>
+      </Grid>
     );
   }
 }
+
+Counter.propTypes = {
+  step: PropTypes.number,
+  max: PropTypes.number,
+  min: PropTypes.number,
+  onChange: PropTypes.func
+};
+
+Counter.defaultProps = {
+  step: 1,
+  max: Infinity,
+  min: -Infinity,
+  onChange: () => undefined
+};
 
 export default Counter;
