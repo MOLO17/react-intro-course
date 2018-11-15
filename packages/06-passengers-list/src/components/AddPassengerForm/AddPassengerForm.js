@@ -1,24 +1,24 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import { Form, Button, FormField, Card, CardContent } from "semantic-ui-react";
+import { Form, Button, FormField, Card, CardContent } from 'semantic-ui-react';
 
 class AddPassengerForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      firstName: "",
-      lastName: "",
-      age: 0
+      firstName: '',
+      lastName: '',
+      age: 0,
     };
   }
 
   resetForm() {
     this.setState(() => ({
-      firstName: "",
-      lastName: "",
-      age: 0
+      firstName: '',
+      lastName: '',
+      age: 0,
     }));
   }
 
@@ -96,11 +96,11 @@ class AddPassengerForm extends Component {
 }
 
 AddPassengerForm.propTypes = {
-  onSubmit: PropTypes.func
+  onSubmit: PropTypes.func,
 };
 
 AddPassengerForm.defaultProps = {
-  onSubmit: () => undefined
+  onSubmit: () => undefined,
 };
 
 export default AddPassengerForm;

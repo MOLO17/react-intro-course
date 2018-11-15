@@ -1,15 +1,15 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import { Button, Icon, Label, Grid } from "semantic-ui-react";
+import { Button, Icon, Label, Grid } from 'semantic-ui-react';
 
 class Counter extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      count: 0
+      count: 0,
     };
   }
 
@@ -58,14 +58,14 @@ Counter.propTypes = {
   step: PropTypes.number,
   max: PropTypes.number,
   min: PropTypes.number,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
 };
 
 Counter.defaultProps = {
   step: 1,
   max: Infinity,
   min: -Infinity,
-  onChange: () => undefined
+  onChange: () => undefined,
 };
 
 export default Counter;

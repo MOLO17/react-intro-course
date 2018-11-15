@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import Counter from "./components/Counter";
-import Caption from "./components/Caption";
+import Counter from './components/Counter';
+import Caption from './components/Caption';
 
-import "./App.css";
+import './App.css';
 
 const App = ({ name }) => (
   <div className="App">

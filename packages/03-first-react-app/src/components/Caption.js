@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Caption = ({ prominence, children }) => {
   switch (prominence) {
@@ -31,12 +31,12 @@ const Caption = ({ prominence, children }) => {
 
 Caption.propTypes = {
   prominence: PropTypes.number,
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 Caption.defaultProps = {
   prominence: 6,
-  children: null
+  children: null,
 };
 
 export default Caption;

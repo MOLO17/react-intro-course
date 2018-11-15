@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import { Card, Checkbox, FormField, CardContent } from "semantic-ui-react";
+import { Card, Checkbox, FormField, CardContent } from 'semantic-ui-react';
 
 const PassengerCard = ({ firstName, lastName, age, checkedIn, onCheck }) => (
   <Card>
@@ -22,12 +22,12 @@ PassengerCard.propTypes = {
   lastName: PropTypes.string.isRequired,
   age: PropTypes.number.isRequired,
   checkedIn: PropTypes.bool,
-  onCheck: PropTypes.func
+  onCheck: PropTypes.func,
 };
 
 PassengerCard.defaultProps = {
   checkedIn: false,
-  onCheck: () => undefined
+  onCheck: () => undefined,
 };
 
 export default PassengerCard;

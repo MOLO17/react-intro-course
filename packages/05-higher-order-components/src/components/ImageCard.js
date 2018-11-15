@@ -1,7 +1,7 @@
-import React from "react";
-import { PropTypes } from "prop-types";
+import React from 'react';
+import { PropTypes } from 'prop-types';
 
-import { Card, CardHeader, Image, CardContent } from "semantic-ui-react";
+import { Card, CardHeader, Image, CardContent } from 'semantic-ui-react';
 
 const ImageCard = ({ caption, src }) => (
   <Card>
@@ -14,7 +14,7 @@ const ImageCard = ({ caption, src }) => (
 
 ImageCard.propTypes = {
   title: PropTypes.string,
-  url: PropTypes.string
+  url: PropTypes.string,
 };
 
 export default ImageCard;

@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Button, Card, Label, CardContent, Divider } from "semantic-ui-react";
+import React, { Component } from 'react';
+import { Button, Card, Label, CardContent, Divider } from 'semantic-ui-react';
 
-const format = time => `${time}`.padStart(2, "0");
+const format = time => `${time}`.padStart(2, '0');
 
 class Timer extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class Timer extends Component {
       seconds: 0,
       minutes: 0,
       hours: 0,
-      running: false
+      running: false,
     };
 
     this.timer = null;
@@ -24,27 +24,27 @@ class Timer extends Component {
     this.timer = setInterval(() => {
       this.setState(({ deciseconds, seconds, minutes, hours }) => {
         let nextStatePatch = {
-          deciseconds: deciseconds < 9 ? deciseconds + 1 : 0
+          deciseconds: deciseconds < 9 ? deciseconds + 1 : 0,
         };
 
         if (deciseconds === 9) {
           nextStatePatch = {
             ...nextStatePatch,
-            seconds: seconds < 59 ? seconds + 1 : 0
+            seconds: seconds < 59 ? seconds + 1 : 0,
           };
         }
 
         if (seconds === 59) {
           nextStatePatch = {
             ...nextStatePatch,
-            minutes: minutes < 59 ? minutes + 1 : 0
+            minutes: minutes < 59 ? minutes + 1 : 0,
           };
         }
 
         if (minutes === 59) {
           nextStatePatch = {
             ...nextStatePatch,
-            hours: hours < 59 ? hours + 1 : 0
+            hours: hours < 59 ? hours + 1 : 0,
           };
         }
 
@@ -64,7 +64,7 @@ class Timer extends Component {
       deciseconds: 0,
       seconds: 0,
       minutes: 0,
-      hours: 0
+      hours: 0,
     }));
   }
 
@@ -84,7 +84,7 @@ class Timer extends Component {
       <Card>
         <CardContent textAlign="center">
           <Label size="massive">
-            {format(hours)} : {format(minutes)} : {format(seconds)} :{" "}
+            {format(hours)} : {format(minutes)} : {format(seconds)} :{' '}
             {format(deciseconds)}
           </Label>
           <Divider />

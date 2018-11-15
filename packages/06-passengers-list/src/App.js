@@ -1,32 +1,32 @@
-import React, { Component } from "react";
-import { v4 as uuid } from "uuid";
+import React, { Component } from 'react';
+import { v4 as uuid } from 'uuid';
 
-import "semantic-ui-css/semantic.min.css";
-import "./App.css";
+import 'semantic-ui-css/semantic.min.css';
+import './App.css';
 
-import PassengerCard from "./components/PassengerCard/PassengerCard";
-import AddPassengerForm from "./components/AddPassengerForm/AddPassengerForm";
-import { Grid, GridColumn } from "semantic-ui-react";
+import PassengerCard from './components/PassengerCard/PassengerCard';
+import AddPassengerForm from './components/AddPassengerForm/AddPassengerForm';
+import { Grid, GridColumn } from 'semantic-ui-react';
 
 const PASSENGERS = [
   {
     id: uuid(),
-    firstName: "John",
-    lastName: "Doe",
-    age: 32
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 32,
   },
   {
     id: uuid(),
-    firstName: "Kid",
-    lastName: "Doe",
-    age: 4
+    firstName: 'Kid',
+    lastName: 'Doe',
+    age: 4,
   },
   {
     id: uuid(),
-    firstName: "Jane",
-    lastName: "Doe",
-    age: 27
-  }
+    firstName: 'Jane',
+    lastName: 'Doe',
+    age: 27,
+  },
 ];
 
 class App extends Component {
@@ -35,7 +35,7 @@ class App extends Component {
 
     this.state = {
       passengers: PASSENGERS,
-      checkedInIds: []
+      checkedInIds: [],
     };
   }
 
@@ -47,9 +47,9 @@ class App extends Component {
           firstName,
           lastName,
           age,
-          id: uuid()
-        }
-      ]
+          id: uuid(),
+        },
+      ],
     }));
   }
 
@@ -57,7 +57,7 @@ class App extends Component {
     this.setState(({ checkedInIds }) => ({
       checkedInIds: checkedIn
         ? [...checkedInIds, passengerId]
-        : checkedInIds.filter(id => id !== passengerId)
+        : checkedInIds.filter(id => id !== passengerId),
     }));
   }
 

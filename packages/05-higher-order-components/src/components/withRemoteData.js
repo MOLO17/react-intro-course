@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 export default (url, mapRemoteDataToProps) => WrappedComponent =>
   class extends Component {
@@ -6,7 +6,7 @@ export default (url, mapRemoteDataToProps) => WrappedComponent =>
       super(props);
 
       this.state = {
-        remoteData: undefined
+        remoteData: undefined,
       };
     }
 

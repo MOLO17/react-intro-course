@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import "./App.css";
+import './App.css';
 
-import RemoteImageCard from "./components/RemoteImageCard";
-import { Grid, Container, GridColumn } from "semantic-ui-react";
+import RemoteImageCard from './components/RemoteImageCard';
+import { Grid, Container, GridColumn } from 'semantic-ui-react';
 
 const IMAGES_IDS = [...Array(3)].map((_, index) => index + 1);
 
