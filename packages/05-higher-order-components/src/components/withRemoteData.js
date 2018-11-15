@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 
-export default url => BaseComponent =>
+export default (url, mapRemoteDataToProps) => WrappedComponent =>
   class extends Component {
     constructor(props) {
       super(props);
 
       this.state = {
-        remoteData: null
+        remoteData: undefined
       };
     }
 
-    async componentWillMount() {
+    async componentDidMount() {
       const response = await fetch(url);
       const remoteData = await response.json();
 
@@ -20,6 +20,11 @@ export default url => BaseComponent =>
     render() {
       const { remoteData } = this.state;
 
-      return <BaseComponent {...this.props} remoteData={remoteData} />;
+      return (
+        <WrappedComponent
+          {...this.props}
+          {...mapRemoteDataToProps(remoteData)}
+        />
+      );
     }
   };
