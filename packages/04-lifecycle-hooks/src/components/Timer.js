@@ -72,6 +72,19 @@ class Timer extends Component {
     this.startTimer();
   }
 
+  componentDidUpdate(_, prevState) {
+    const { running, seconds } = this.state;
+    const { running: prevRunning, seconds: prevSeconds } = prevState;
+
+    if (running !== prevRunning) {
+      console.log(running ? 'Started' : 'Paused');
+    }
+
+    if (seconds > 0 && seconds % 5 === 0 && seconds !== prevSeconds) {
+      console.log('5 secs!');
+    }
+  }
+
   componentWillUnmount() {
     this.pauseTimer();
     this.resetTimer();
