@@ -11,7 +11,7 @@ const IMAGES_IDS = [...Array(3)].map((_, index) => index + 1);
 
 const App = () => (
   <Container>
-    <RemoteUserList />
+    <RemoteUserList limit={4} />
     <Grid stackable centered columns={4}>
       <GridColumn>
         <ImageCard
