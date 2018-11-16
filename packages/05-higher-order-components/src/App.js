@@ -5,11 +5,13 @@ import './App.css';
 import RemoteImageCard from './components/RemoteImageCard';
 import { Grid, Container, GridColumn } from 'semantic-ui-react';
 import ImageCard from './components/ImageCard';
+import RemoteUserList from './components/RemoteUserList';
 
 const IMAGES_IDS = [...Array(3)].map((_, index) => index + 1);
 
 const App = () => (
   <Container>
+    <RemoteUserList />
     <Grid stackable centered columns={4}>
       <GridColumn>
         <ImageCard
