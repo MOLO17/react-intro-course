@@ -9,8 +9,8 @@ const RemoteImageCard = ({ id, ...props }) => {
   const AugmentedImageCard = withRemoteData(
     `https://jsonplaceholder.typicode.com/photos/${id}`,
     ({
-      title: caption = 'Loading...',
-      url: src = 'https://via.placeholder.com/600?text=no%20image',
+      title: caption = '...',
+      url: src = 'https://via.placeholder.com/320?text=loading',
     } = {}) => ({ ...props, caption, src }),
   )(ImageCard);
 
