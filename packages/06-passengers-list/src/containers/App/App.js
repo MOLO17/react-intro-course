@@ -17,6 +17,7 @@ class App extends Component {
 
     this.state = {
       passengersList: [],
+      addPassenger: this.addPassenger.bind(this),
     };
   }
 
@@ -35,15 +36,8 @@ class App extends Component {
   }
 
   render() {
-    const { passengersList } = this.state;
-
-    const context = {
-      passengersList,
-      addPassenger: user => this.addPassenger(user),
-    };
-
     return (
-      <AppContextProvider value={context}>
+      <AppContextProvider value={this.state}>
         <BrowserRouter>
           <main className="container">
             <section className="list">
