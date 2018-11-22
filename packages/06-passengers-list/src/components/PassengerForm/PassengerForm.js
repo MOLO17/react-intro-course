@@ -111,7 +111,7 @@ PassengerForm.propTypes = {
   edit: PropTypes.bool,
   initialFirstName: PropTypes.string,
   initialLastName: PropTypes.string,
-  initialAge: PropTypes.number,
+  initialAge: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onSubmit: PropTypes.func,
 };
 
