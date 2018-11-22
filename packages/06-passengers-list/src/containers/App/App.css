@@ -1,0 +1,22 @@
+main.container {
+  position: relative;
+  display: flex;
+  padding: 16px;
+  height: 100%;
+}
+
+main.container > section {
+  padding: 16px;
+}
+
+main.container > section.list {
+  flex: 0 0 360px;
+  border-right: 1px solid lightgray;
+}
+
+main.container > section.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+}
