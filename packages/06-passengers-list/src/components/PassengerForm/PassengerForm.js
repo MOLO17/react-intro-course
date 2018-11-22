@@ -41,6 +41,8 @@ class PassengerForm extends Component {
 
     if (typeof age === 'number' && age >= 0) {
       this.setState(() => ({ age }));
+    } else if (value === '') {
+      this.setState(() => ({ age: '' }));
     }
   }
 
