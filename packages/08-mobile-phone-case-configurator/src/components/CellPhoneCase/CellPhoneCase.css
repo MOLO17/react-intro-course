@@ -1,0 +1,32 @@
+div.cell-phone-case {
+  display: flex;
+  position: relative;
+  width: 320px;
+  height: 576px;
+  border-radius: 48px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  justify-content: center;
+}
+
+div.cell-phone-case::before {
+  position: absolute;
+  display: block;
+  content: '';
+  background-color: black;
+  width: 48px;
+  height: 128px;
+  border-radius: 24px;
+  right: 24px;
+  top: 24px;
+}
+
+div.cell-phone-case > span {
+  writing-mode: vertical-lr;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 72px;
+  padding: 16px 0;
+  text-transform: uppercase;
+  border-radius: 36px;
+}

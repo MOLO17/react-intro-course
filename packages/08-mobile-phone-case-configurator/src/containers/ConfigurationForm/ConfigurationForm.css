@@ -1,0 +1,10 @@
+div.configuration-form {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+}
+
+div.configuration-form > * {
+  margin-bottom: 16px;
+  padding: 8px;
+}

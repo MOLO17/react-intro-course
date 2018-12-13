@@ -1,0 +1,8 @@
+div.app {
+  display: flex;
+  align-items: center;
+}
+
+div.app > * {
+  padding: 24px;
+}
