@@ -15,11 +15,14 @@ import { addPassenger } from '../../store/actions';
 import PassengerForm from '../../components/PassengerForm/PassengerForm';
 
 const mapDispatchToProps = dispatch => ({
-  addPassenger: ({ birthDate, ...passenger }) => dispatch(addPassenger({
-    id: uuid(),
-    birthTimestamp: birthDate.getTime(),
-    ...passenger
-  })),
+  addPassenger: ({ birthDate, ...passenger }) =>
+    dispatch(
+      addPassenger({
+        id: uuid(),
+        birthTimestamp: birthDate.getTime(),
+        ...passenger,
+      }),
+    ),
 });
 
 const AddPassengerForm = ({ addPassenger }) => (
