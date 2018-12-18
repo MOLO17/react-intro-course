@@ -27,9 +27,19 @@ export const updateShip = (id, { category, color }) => ({
  */
 export const SHIP_DELETED = 'SHIP_DELETED';
 
-export const removeShip = id => ({
+export const deleteShip = id => ({
   type: SHIP_DELETED,
   id,
+});
+
+/**
+ * Set ships list
+ */
+export const SHIPS_STATE_SET = 'SHIPS_STATE_SET';
+
+export const setShips = ships => ({
+  type: SHIPS_STATE_SET,
+  ships,
 });
 
 /**
@@ -42,11 +52,34 @@ export const requireShipsList = () => ({
 });
 
 /**
- * Set ships list
+ * Require ship create
  */
-export const SHIPS_STATE_SET = 'SHIPS_STATE_SET';
+export const SHIP_CREATE_REQUIRED = 'SHIP_CREATE_REQUIRED';
 
-export const setShips = ships => ({
-  type: SHIPS_STATE_SET,
-  ships,
+export const requireShipCreate = ({ category, color }) => ({
+  type: SHIP_CREATE_REQUIRED,
+  category,
+  color,
+});
+
+/**
+ * Require ship update
+ */
+export const SHIP_UPDATE_REQUIRED = 'SHIP_UPDATE_REQUIRED';
+
+export const requireShipUpdate = (id, { category, color }) => ({
+  type: SHIP_UPDATE_REQUIRED,
+  id,
+  category,
+  color,
+});
+
+/**
+ * Require ship update
+ */
+export const SHIP_DELETE_REQUIRED = 'SHIP_DELETE_REQUIRED';
+
+export const requireShipDelete = id => ({
+  type: SHIP_DELETE_REQUIRED,
+  id,
 });

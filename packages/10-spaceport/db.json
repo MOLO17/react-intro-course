@@ -1,0 +1,9 @@
+{
+  "ships": [
+    {
+      "id": 1,
+      "color": "#ff8e32",
+      "category": "CARGO"
+    }
+  ]
+}

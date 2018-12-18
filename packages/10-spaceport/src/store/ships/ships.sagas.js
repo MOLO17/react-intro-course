@@ -1,10 +1,19 @@
 import uuid from 'uuid/v4';
 
-import { getContext, call, put, takeEvery, fork } from 'redux-saga/effects';
+import { getContext, call, put, takeEvery, takeLatest } from 'redux-saga/effects';
 
 import { createError } from '../errors/errors.actions';
 
-import { setShips, SHIPS_LIST_REQUIRED, createShip, SHIP_CREATED, SHIP_DELETED } from './ships.actions';
+import {
+  SHIPS_LIST_REQUIRED,
+  SHIP_CREATE_REQUIRED,
+  SHIP_UPDATE_REQUIRED,
+  SHIP_DELETE_REQUIRED,
+  setShips as setShipsAction,
+  createShip as createShipAction,
+  updateShip as updateShipAction,
+  deleteShip as deleteShipAction,
+} from './ships.actions';
 
 import {
   createPendingRequest,
@@ -24,14 +33,15 @@ function* getShips() {
 
     const ships = yield call(shipsDataSource.getShips);
 
-    yield put(setShips(ships));
+    yield put(setShipsAction(ships));
 
-    yield put(deletePendingRequest(requestId));
   } catch (error) {
     const errorId = uuid();
 
     yield put(createError(errorId, error.message));
   }
+
+  yield put(deletePendingRequest(requestId));
 }
 
 function* addShip({ color, category }) {
@@ -41,33 +51,63 @@ function* addShip({ color, category }) {
   try {
     const shipsDataSource = yield getContext('shipsDataSource');
 
-    yield call(shipsDataSource.addShip);
+    const { id, ...ship } = yield call(shipsDataSource.addShip, {
+      color,
+      category,
+    });
 
-    yield put(deletePendingRequest(requestId));
+    yield put(createShipAction(id, ship));
+
   } catch (error) {
     const errorId = uuid();
 
     yield put(createError(errorId, error.message));
   }
+
+  yield put(deletePendingRequest(requestId));
 }
 
-function* removeShip() {
+function* updateShip({ id: shipId, category, color }) {
   const requestId = uuid();
   yield put(createPendingRequest(requestId));
 
   try {
     const shipsDataSource = yield getContext('shipsDataSource');
 
-    const ships = yield call(shipsDataSource.addShip);
+    const { id, ...ship } = yield call(shipsDataSource.editShip, shipId, {
+      category,
+      color,
+    });
 
-    yield put(setShips(ships));
+    yield put(updateShipAction(id, ship));
 
-    yield put(deletePendingRequest(requestId));
   } catch (error) {
     const errorId = uuid();
 
     yield put(createError(errorId, error.message));
   }
+
+  yield put(deletePendingRequest(requestId));
+}
+
+function* removeShip({ id }) {
+  const requestId = uuid();
+  yield put(createPendingRequest(requestId));
+
+  try {
+    const shipsDataSource = yield getContext('shipsDataSource');
+
+    yield call(shipsDataSource.removeShip, id);
+
+    yield put(deleteShipAction(id));
+
+  } catch (error) {
+    const errorId = uuid();
+
+    yield put(createError(errorId, error.message));
+  }
+
+  yield put(deletePendingRequest(requestId));
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -75,7 +115,9 @@ function* removeShip() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export default [
-  takeEvery(SHIPS_LIST_REQUIRED, getShips),
-  takeEvery(SHIP_CREATED, addShip),
-  takeEvery(SHIP_DELETED, removeShip),
+  takeLatest(SHIPS_LIST_REQUIRED, getShips),
+
+  takeEvery(SHIP_CREATE_REQUIRED, addShip),
+  takeEvery(SHIP_UPDATE_REQUIRED, updateShip),
+  takeEvery(SHIP_DELETE_REQUIRED, removeShip),
 ];
