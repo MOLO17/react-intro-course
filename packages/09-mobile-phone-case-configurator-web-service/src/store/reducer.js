@@ -1,20 +1,22 @@
-import { COLOR_SET, TEXT_SET, TEXTURE_SET, CONFIGURATION_SET, LOADING_SET } from './actions';
-
-/**
- * color: string
- * text: string
- * texture: string
- *
- * loading: boolean
- */
+import {
+  COLOR_SET,
+  TEXT_SET,
+  TEXTURE_SET,
+  CONFIGURATION_RESOLVED,
+  LOADING_SET,
+} from './actions';
 
 const configuratorReducer = (state = {}, action) => {
   switch (action.type) {
-    case CONFIGURATION_SET: {
+    case LOADING_SET: {
       return {
-        ...action.configuration,
-        loading: false,
+        ...state,
+        loading: action.loading,
       };
+    }
+
+    case CONFIGURATION_RESOLVED: {
+      return { ...state, ...action.configuration, loading: false };
     }
 
     case COLOR_SET: {
@@ -35,13 +37,6 @@ const configuratorReducer = (state = {}, action) => {
       return {
         ...state,
         texture: action.texture,
-      };
-    }
-
-    case LOADING_SET: {
-      return {
-        ...state,
-        loading: action.loading,
       };
     }
 

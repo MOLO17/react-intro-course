@@ -1,4 +1,4 @@
-import { selectColor, selectText, selectTexture } from './selectors';
+import { selectConfiguration } from './selectors';
 
 /**
  * NOTE: Here we define actions that describe state transformations.
@@ -7,22 +7,27 @@ import { selectColor, selectText, selectTexture } from './selectors';
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Action types.
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-export const CONFIGURATION_SET = 'CONFIGURATION_SET';
-
 export const COLOR_SET = 'COLOR_SET';
 
 export const TEXT_SET = 'TEXT_SET';
 
 export const TEXTURE_SET = 'TEXTURE_SET';
 
-export const LOADING_SET = 'LOADING_SET';
+export const LOADING_SET = 'CONFIGURATION_REQUIRED';
+
+export const CONFIGURATION_RESOLVED = 'CONFIGURATION_RESOLVED';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Action creators
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-export const setConfiguration = configuration => ({
-  type: CONFIGURATION_SET,
+export const resolveConfiguration = configuration => ({
+  type: CONFIGURATION_RESOLVED,
   configuration,
+});
+
+export const setLoading = loading => ({
+  type: LOADING_SET,
+  loading,
 });
 
 export const setColor = color => ({ type: COLOR_SET, color });
@@ -31,29 +36,27 @@ export const setText = text => ({ type: TEXT_SET, text });
 
 export const setTexture = texture => ({ type: TEXTURE_SET, texture });
 
-export const setLoading = loading => ({ type: LOADING_SET, loading });
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// Async action creators
+// Async actions
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-export const loadConfiguration = () => {
-  return async (dispatch, _, { configurationService }) => {
-    dispatch(setLoading(true));
+export const saveConfiguration = () => async (
+  _,
+  getState,
+  { configurationService },
+) => {
+  const state = getState();
 
-    const configuration = await configurationService.getConfiguration();
-
-    dispatch(setConfiguration(configuration));
-  };
+  configurationService.updateConfiguration(selectConfiguration(state));
 };
 
-export const saveConfiguration = () => {
-  return async (_, getState, { configurationService }) => {
-    const state = getState();
+export const loadConfiguration = () => async (
+  dispatch,
+  getState,
+  { configurationService },
+) => {
+  dispatch(setLoading(true));
 
-    configurationService.setConfiguration({
-      color: selectColor(state),
-      text: selectText(state),
-      texture: selectTexture(state),
-    });
-  };
-}
+  const configuration = await configurationService.retrieveConfiguration();
+
+  dispatch(resolveConfiguration(configuration));
+};

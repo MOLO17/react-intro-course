@@ -1,5 +1,5 @@
 {
-  "name": "mobile-phone-case-configurator",
+  "name": "mobile-phone-case-configurator-web-service",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,7 +13,7 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start:server": "json-server --port 3001 --watch db.json",
+    "start:server": "json-server --watch db.json --port 3001",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

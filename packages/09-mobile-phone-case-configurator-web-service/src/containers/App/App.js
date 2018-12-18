@@ -5,24 +5,21 @@ import { connect } from 'react-redux';
 import CasePreview from '../CasePreview/CasePreview';
 import ConfigurationForm from '../ConfigurationForm/ConfigurationForm';
 
-import './App.css';
-
 import { selectLoading } from '../../store/selectors';
 
-const mapStateToProps = state => ({
-  loading: selectLoading(state),
-});
+import './App.css';
 
-const App = ({ loading }) =>
-  loading
-    ? (
-      <div>loading...</div>
-    )
-    : (
-      <div className="app">
+const mapStateToProps = state => ({ loading: selectLoading(state) });
+
+const App = ({ loading }) => (
+  <div className="app">
+    {loading ? null : (
+      <>
         <ConfigurationForm />
         <CasePreview />
-      </div >
-    );
+      </>
+    )}
+  </div>
+);
 
 export default connect(mapStateToProps)(App);
