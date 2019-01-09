@@ -1,22 +1,18 @@
+/**
+ * NOTE: Here we define actions that describe state transformations.
+ */
+
 import {
+  CONFIGURATION_SET,
   COLOR_SET,
   TEXT_SET,
   TEXTURE_SET,
-  CONFIGURATION_RESOLVED,
-  LOADING_SET,
-} from './actions';
+} from '../actions/actions';
 
 const configuratorReducer = (state = {}, action) => {
   switch (action.type) {
-    case LOADING_SET: {
-      return {
-        ...state,
-        loading: action.loading,
-      };
-    }
-
-    case CONFIGURATION_RESOLVED: {
-      return { ...state, ...action.configuration, loading: false };
+    case CONFIGURATION_SET: {
+      return { ...action.configuration };
     }
 
     case COLOR_SET: {
