@@ -56,4 +56,4 @@ export const saveConfiguration = () => {
       texture: selectTexture(state),
     });
   };
-}
+};

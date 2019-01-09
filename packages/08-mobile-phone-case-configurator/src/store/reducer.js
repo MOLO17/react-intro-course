@@ -1,4 +1,10 @@
-import { COLOR_SET, TEXT_SET, TEXTURE_SET, CONFIGURATION_SET, LOADING_SET } from './actions';
+import {
+  COLOR_SET,
+  TEXT_SET,
+  TEXTURE_SET,
+  CONFIGURATION_SET,
+  LOADING_SET,
+} from './actions';
 
 /**
  * color: string

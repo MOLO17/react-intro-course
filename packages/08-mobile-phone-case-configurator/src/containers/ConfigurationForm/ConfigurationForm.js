@@ -3,7 +3,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { selectColor, selectText, selectTexture } from '../../store/selectors';
-import { setColor, setText, setTexture, saveConfiguration } from '../../store/actions';
+import {
+  setColor,
+  setText,
+  setTexture,
+  saveConfiguration,
+} from '../../store/actions';
 
 import ColorSelector from '../../components/ColorSelector/ColorSelector';
 

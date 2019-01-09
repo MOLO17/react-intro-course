@@ -12,17 +12,14 @@ const createConfigurationService = apiUrl => ({
     return response.json();
   },
   setConfiguration: async ({ color, text, texture }) => {
-    const response = await fetch(
-      `${apiUrl}/configuration`,
-      {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ color, text, texture }),
-      }
-    );
+    const response = await fetch(`${apiUrl}/configuration`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ color, text, texture }),
+    });
 
     response.json();
   },
