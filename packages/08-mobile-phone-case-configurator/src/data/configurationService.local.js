@@ -15,7 +15,7 @@ const createConfigurationService = storageKey => ({
     window.localStorage.setItem(
       storageKey,
       JSON.stringify({ color, text, texture }),
-    )
+    );
   },
 });
 

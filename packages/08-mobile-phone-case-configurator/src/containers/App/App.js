@@ -14,15 +14,13 @@ const mapStateToProps = state => ({
 });
 
 const App = ({ loading }) =>
-  loading
-    ? (
-      <div>loading...</div>
-    )
-    : (
-      <div className="app">
-        <ConfigurationForm />
-        <CasePreview />
-      </div >
-    );
+  loading ? (
+    <div>loading...</div>
+  ) : (
+    <div className="app">
+      <ConfigurationForm />
+      <CasePreview />
+    </div>
+  );
 
 export default connect(mapStateToProps)(App);
