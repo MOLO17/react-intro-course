@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CellPhoneCase component renders correctly 1`] = `
+<div
+  className="cell-phone-case"
+  style={
+    Object {
+      "backgroundColor": "#ff0000",
+      "backgroundImage": "url('Dotted.svg')",
+    }
+  }
+>
+  <span
+    style={
+      Object {
+        "backgroundColor": "#ff0000",
+        "color": "white",
+      }
+    }
+  >
+    Dummy text
+  </span>
+</div>
+`;
