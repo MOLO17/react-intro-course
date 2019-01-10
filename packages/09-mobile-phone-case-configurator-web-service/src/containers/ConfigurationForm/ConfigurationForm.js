@@ -2,22 +2,18 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import { selectColor, selectText, selectTexture } from '../../store/selectors';
-import {
-  setColor,
-  setText,
-  setTexture,
-  saveConfiguration,
-} from '../../store/actions';
+import { getColor, getText, getTexture } from '../../store/selectors/selectors';
+import { setColor, setText, setTexture } from '../../store/actions/actions';
+import { saveConfiguration } from '../../store/thunks/thunks';
 
 import ColorSelector from '../../components/ColorSelector/ColorSelector';
 
 import './ConfigurationForm.css';
 
 const mapStateToProps = state => ({
-  color: selectColor(state),
-  text: selectText(state),
-  texture: selectTexture(state),
+  color: getColor(state),
+  text: getText(state),
+  texture: getTexture(state),
 });
 
 const mapDispatchToProps = dispatch => ({

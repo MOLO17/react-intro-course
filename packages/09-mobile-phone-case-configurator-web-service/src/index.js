@@ -9,9 +9,13 @@ import App from './containers/App/App';
 import * as serviceWorker from './serviceWorker';
 
 import configureStore from './store/store';
-import { loadConfiguration } from './store/actions';
+import { loadConfiguration } from './store/thunks/thunks';
+
+import createConfigurationService from './data/configurationService';
 
 const store = configureStore({
+  configurationService: createConfigurationService('http://localhost:3001'),
+})({
   color: '#FA7268',
   text: '',
   texture: 'NONE',
